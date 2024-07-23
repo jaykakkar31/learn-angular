@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { WishItem } from '../shared/module/wishitems';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,20 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'lesson1';
+  title = 'Jay';
+  items = [
+    new WishItem('Learn Angular'),
+    new WishItem('Get coffeee', true),
+    new WishItem('Get a job')
+  ]
+  newWishText=""
+  toggleItem(item:WishItem){
+    item.isComplete=!item.isComplete
+    console.log('clicked',item);
+
+  }
+  addNewWish(){
+
+  }
+
 }

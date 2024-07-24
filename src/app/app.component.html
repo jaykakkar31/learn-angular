@@ -1,63 +1,19 @@
 <div class="container">
-  <form class="row mt-3 gx-3 gy-2 align-items-center justify-content-center">
-    <div class="col-sm-6">
-      <label class="visually-hidden" for="specificSizeInputName">Wish</label>
+  <app-add-wish (addWish)="items.push($event)"></app-add-wish>
 
-      <input
-        type="text"
-        class="form-control"
-        [ngModel]="newWishText"
-        (ngModelChange)="newWishText = $event"
-        name="first"
-      />
-      <!-- <p>{{ newWishText }}</p> -->
-    </div>
-
-    <div class="col-auto">
-      <button
-        type="submit"
-        class="btn btn-primary"
-        (click)="$event.preventDefault(); addNewWish()"
-      >
-        Add Wish
-      </button>
-    </div>
-  </form>
-
+  <!-- TWO WAY BINDING -->
   <div class="row mt-3">
-    <div class="col-sm-2">
-      <select
-        class="form-select"
-        [(ngModel)]="listFilter"
-      >
-        <!-- (ngModelChange)="filterChanged($event)" -->
-        <option value="0">All</option>
-        <option value="1">Unfulfilled</option>
-        <option value="2">Fulfilled</option>
-      </select>
-    </div>
+    <app-wish-filter [(filterWish)]="filterWish"></app-wish-filter>
   </div>
 
-  <div *ngIf="visibleItems.length == 0; then noItem; else showItems"></div>
+  <!-- ONE WAY BINDING -->
+  <!-- <div class="row mt-3">
+    <app-wish-filter (filterWish)="filterWish=$event"></app-wish-filter>
+  </div> -->
 
-  <ng-template #noItem> There is no data. </ng-template>
-  <ng-template #showItems> List of items are available </ng-template>
 
-  <div *ngIf="visibleItems.length == 0">There is no data.</div>
 
-  <ul *ngIf="visibleItems.length > 0" class="wish-list">
-    <li *ngFor="let item of visibleItems; index as ii">
-      <div class="form-check">
-        <label for="" class="form-check-label">
-          <input
-            type="checkbox"
-            class="checkbox"
-            [checked]="item.isComplete"
-            [attr.data-index]="ii"
-            (click)="toggleItem(item)"
-          />{{ item.wishText }}
-        </label>
-      </div>
-    </li>
-  </ul>
+  <div class="row mt-3">
+    <app-wish-list [wishes]="visibleItems"> </app-wish-list>
+  </div>
 </div>

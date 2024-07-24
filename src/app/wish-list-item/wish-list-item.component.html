@@ -1,0 +1,13 @@
+<li>
+  <div class="form-check">
+    <label for="" class="form-check-label "  [ngClass]="cssClass">
+      <input
+        type="checkbox"
+        class="checkbox"
+        [checked]="fullFilled"
+        (click)="toggleFullFilled()"
+      />{{wishText }}
+    </label>
+  </div>
+</li>
+<!-- [attr.data-index]="ii" -->

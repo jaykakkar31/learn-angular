@@ -9,8 +9,9 @@
   <ul *ngIf="wishes.length > 0" class="wish-list">
     <app-wish-list-item
       *ngFor="let wish of wishes; index as ii"
-      [wishText]="wish.wishText"
-      [(fullFilled)]="wish.isComplete"
+      [wish]="wish"
     ></app-wish-list-item>
   </ul>
 </ng-template>
+      <!-- [wishText]="wish.wishText"
+      [(fullFilled)]="wish.isComplete" -->

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { WishItem } from '../../shared/module/wishitems';
+import { WishItem } from '../../../shared/module/wishitems';
 
 const filters = [
   (item: WishItem) => item,

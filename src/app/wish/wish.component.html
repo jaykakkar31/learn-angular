@@ -1,0 +1,19 @@
+<div class="container">
+  <app-add-wish (addWish)="items.push($event)"></app-add-wish>
+
+  <!-- TWO WAY BINDING -->
+  <div class="row mt-3">
+    <app-wish-filter [(filterWish)]="filterWish"></app-wish-filter>
+  </div>
+
+  <!-- ONE WAY BINDING -->
+  <!-- <div class="row mt-3">
+    <app-wish-filter (filterWish)="filterWish=$event"></app-wish-filter>
+  </div> -->
+
+  <div class="row mt-3">
+    <div class="col-sm-4">
+      <app-wish-list [wishes]="visibleItems"> </app-wish-list>
+    </div>
+  </div>
+</div>
